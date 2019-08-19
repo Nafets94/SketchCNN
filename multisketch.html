@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <title>SketchCNN</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+    <script src="js/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+</head>
+
+<body>
+    <div id="mainbar">
+        <img class="logo" style="display:inline;" src="images/logo.png">
+        <div class="float-right" style="display:inline;">
+        <nav class="navbar navbar-light bg-grey"  style="display:inline;">
+            <a class="navbar-brand" href="/index.html">
+            <img src="images/sletter.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            Sketch
+            </a>
+
+            <a class="navbar-brand" href="/multisketch.html">
+            <img src="images/mletter.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            MultiSketch
+            </a>
+
+            <a class="navbar-brand" href="/about.html">
+            <img src="images/aletter.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            About
+            </a>
+        </nav>
+        </div>
+    </div>
+
+    <div id="paragraphes">
+        <h4><b>MultiSketch</b> allows to draw multiple sketches. Can the model recognize them all?</h4>
+
+        <h4 id="modelstatus" style="display:inline;">Model not ready. Preparing ... &#10060;</h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <h4 id="classesstatus" style="display:inline;">Classes not loaded. Loading ... &#10060;</h4>
+    </div>
+
+    <script>loadmodel()</script>
+    <script>loadclasses()</script>
+    
+    <div class="row">
+        <div class="column">
+            <div id="canvasCNNmulti">
+                <canvas id="canvas_multi_sketch" width="800" height="450"></canvas>
+            </div>
+        </div>
+
+        <div class="column">
+            <div id="selectmodel">
+                <h4 id="modelselected" style="display:inline;">Choose an algorithm ...</h4>
+            </div>
+            <div id="buttonsBoundingBoxKMeans">
+                <button type="button" class="btn btn-secondary btn-lg" id="boundingboxesalg">Bounding Boxes</button>
+                <button type="button" class="btn btn-secondary btn-lg" id="unsupervisedlearningalg">Unsupervised Learning</button>
+            </div>
+            <div id="KMeansParameter">
+                    <div id ="question" style="display:inline;">How many drawings are in the canvas? (1-20)</div>
+                    <div class="col-sm-2">
+                            <input class="form-control" id="ex1" type="text">
+                    </div>
+            </div>
+            <div id="buttonsmulti">
+                <button type="button" class="btn btn-primary btn-lg" id="predictmulti">Predict >></button><br><br>
+                <button type="button" class="btn btn-secondary btn-lg" id="clear">&lt;&lt; Clear </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Predictions have to appear before being hidden-->
+    <script>hidekmeansfield()</script>
+    <!--Canvas has to load first before js-->
+    <script src="js/fabric.min.js"></script>
+    <script src="js/multisketch.js"></script>
+</body>
+</html>

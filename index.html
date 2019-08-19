@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+    <title>SketchCNN</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+    <script src="js/scripts.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+</head>
+
+<body>
+    <div id="mainbar">
+        <img class="logo" style="display:inline;" src="images/logo.png">
+        <div class="float-right" style="display:inline;">
+        <nav class="navbar navbar-light bg-grey"  style="display:inline;">
+            <a class="navbar-brand" href="/index.html">
+            <img src="images/sletter.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            Sketch
+            </a>
+
+            <a class="navbar-brand" href="/multisketch.html">
+            <img src="images/mletter.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            MultiSketch
+            </a>
+
+            <a class="navbar-brand" href="/about.html">
+            <img src="images/aletter.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            About
+            </a>
+        </nav>
+        </div>
+    </div>
+    <div id="paragraphes">
+        <h3>Can a Neural Network recognize sketch drawings?</h3>
+        <h4>SketchCNN is a Convolutional Neural Network that can recognize sketch drawings. <br>
+        Trained on millions of examples from Quick Draw dataset it can recognize sketches across over 100 different categories. <h4>
+
+        <h4 id="modelstatus" style="display:inline;">Model not ready. Preparing ... &#10060;</h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <h4 id="classesstatus" style="display:inline;">Classes not loaded. Loading ... &#10060;</h4>
+    </div>
+
+    <script>loadmodel()</script>
+    <script>loadclasses()</script>
+    
+    <div class="row">
+        <div class="column">
+            <div id="canvasCNN">
+                <canvas id="canvas" width="340" height="340"></canvas>
+            </div>
+        </div>
+
+        <div class="column">
+            <div id="buttons">
+                <button type="button" class="btn btn-primary btn-lg" id="predict">Predict >></button><br><br>
+                <button type="button" class="btn btn-secondary btn-lg" id="clear">&lt;&lt; Clear </button>
+            </div>
+        </div>
+
+        <div class="column">
+                <div id="chartDiv">
+                        <canvas id="myChart" style="display:inline;" width="300" height="200"></canvas>
+                </div>
+                
+                <div class="predictions">
+                        <div class="foo color1"></div><h4 id="prediction1">prediction1</h4>
+                        <div class="foo color2"></div><h4 id="prediction2">prediction2</h4>
+                        <div class="foo color3"></div><h4 id="prediction3">prediction3</h4>
+                        <div class="foo color4"></div><h4 id="prediction4">prediction4</h4>
+                        <div class="foo color5"></div><h4 id="prediction5">prediction5</h4>
+                </div>
+        </div>   
+        
+    </div>
+
+    <!--Predictions have to appear before being hidden-->
+    <script>hidepredictions()</script>
+    <!--Canvas has to load first before js-->
+    <script src="js/fabric.min.js"></script>
+    <script src="js/sketch.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+    <title>SketchCNN</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <script src="js/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+</head>
+
+<body>
+    <div id="mainbar">
+        <img class="logo" style="display:inline;" src="images/logo.png">
+        <div class="float-right" style="display:inline;">
+        <nav class="navbar navbar-light bg-grey"  style="display:inline;">
+            <a class="navbar-brand" href="/index.html">
+            <img src="images/sletter.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            Sketch
+            </a>
+
+            <a class="navbar-brand" href="/multisketch.html">
+            <img src="images/mletter.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            MultiSketch
+            </a>
+
+            <a class="navbar-brand" href="/about.html">
+            <img src="images/aletter.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            About
+            </a>
+        </nav>
+        </div>
+    </div>
+    <div id="paragraphes">
+        <h3>Can a Neural Network recognize sketch drawings?</h3>
+        <h5>SketchCNN is a Convolutional Neural Network that can recognize sketch drawings. <br>
+        Trained on millions of examples from Quick Draw dataset it can recognize sketches across over 100 different categories. <h5>
+        <h5>The classes that can be recognized are:</h5>
+        <h6>hourglass &nbsp; &nbsp; &nbsp; remote_control &nbsp; &nbsp; &nbsp; traffic_light &nbsp; &nbsp; &nbsp; face &nbsp; &nbsp; &nbsp; cake &nbsp; &nbsp; &nbsp; laptop &nbsp; &nbsp; &nbsp; toothpaste &nbsp; &nbsp; &nbsp; postcard &nbsp; &nbsp; &nbsp; strawberry &nbsp; &nbsp; &nbsp; hamburger</h6>
+        <h6>train &nbsp; &nbsp; &nbsp; television &nbsp; &nbsp; &nbsp; shoe &nbsp; &nbsp; &nbsp; castle &nbsp; &nbsp; &nbsp; baseball_bat &nbsp; &nbsp; &nbsp; elephant &nbsp; &nbsp; &nbsp; sword &nbsp; &nbsp; &nbsp; map &nbsp; &nbsp; &nbsp; hammer &nbsp; &nbsp; &nbsp; streetlight</h6>
+        <h6>pizza &nbsp; &nbsp; &nbsp; book &nbsp; &nbsp; &nbsp; mug &nbsp; &nbsp; &nbsp; tooth &nbsp; &nbsp; &nbsp; umbrella &nbsp; &nbsp; &nbsp; lightning &nbsp; &nbsp; &nbsp; dragon &nbsp; &nbsp; &nbsp; paint_can &nbsp; &nbsp; &nbsp; light_bulb &nbsp; &nbsp; &nbsp; basket</h6>
+        <h6>knife &nbsp; &nbsp; &nbsp; hat &nbsp; &nbsp; &nbsp; firetruck &nbsp; &nbsp; &nbsp; basketball &nbsp; &nbsp; &nbsp; pants &nbsp; &nbsp; &nbsp; drums &nbsp; &nbsp; &nbsp; keyboard &nbsp; &nbsp; &nbsp; popsicle &nbsp; &nbsp; &nbsp; octagon &nbsp; &nbsp; &nbsp; teapot</h6>
+        <h6>rainbow &nbsp; &nbsp; &nbsp; guitar &nbsp; &nbsp; &nbsp; envelope &nbsp; &nbsp; &nbsp; skateboard &nbsp; &nbsp; &nbsp; paintbrush &nbsp; &nbsp; &nbsp; stairs &nbsp; &nbsp; &nbsp; suitcase &nbsp; &nbsp; &nbsp; tennis_racquet &nbsp; &nbsp; &nbsp; shorts &nbsp; &nbsp; &nbsp; truck</h6>
+        <h6>toothbrush &nbsp; &nbsp; &nbsp; car &nbsp; &nbsp; &nbsp; door &nbsp; &nbsp; &nbsp; star &nbsp; &nbsp; &nbsp; bread &nbsp; &nbsp; &nbsp; mailbox &nbsp; &nbsp; &nbsp; smiley_face &nbsp; &nbsp; &nbsp; cell_phone &nbsp; &nbsp; &nbsp; nail &nbsp; &nbsp; &nbsp; mountain</h6>   
+        <h6>microphone &nbsp; &nbsp; &nbsp; snowman &nbsp; &nbsp; &nbsp; tornado &nbsp; &nbsp; &nbsp; fish &nbsp; &nbsp; &nbsp; telephone &nbsp; &nbsp; &nbsp; eyeglasses &nbsp; &nbsp; &nbsp; sun &nbsp; &nbsp; &nbsp; binoculars &nbsp; &nbsp; &nbsp; floor_lamp &nbsp; &nbsp; &nbsp; t-shirt</h6>
+        <h6>windmill &nbsp; &nbsp; &nbsp; washing_machine &nbsp; &nbsp; &nbsp; key &nbsp; &nbsp; &nbsp; compass &nbsp; &nbsp; &nbsp; ladder &nbsp; &nbsp; &nbsp; saw &nbsp; &nbsp; &nbsp; bed &nbsp; &nbsp; &nbsp; grapes &nbsp; &nbsp; &nbsp; pineapple &nbsp; &nbsp; &nbsp; pencil</h6>
+        <h6>ice_cream &nbsp; &nbsp; &nbsp; hot_air_balloon &nbsp; &nbsp; &nbsp; coffee_cup &nbsp; &nbsp; &nbsp; leaf &nbsp; &nbsp; &nbsp; skyscraper &nbsp; &nbsp; &nbsp; snowflake &nbsp; &nbsp; &nbsp; dumbbell &nbsp; &nbsp; &nbsp; pillow &nbsp; &nbsp; &nbsp; wheel &nbsp; &nbsp; &nbsp; house</h6>
+        <h6>anvil &nbsp; &nbsp; &nbsp; lighthouse &nbsp; &nbsp; &nbsp; teddy-bear &nbsp; &nbsp; &nbsp; scissors &nbsp; &nbsp; &nbsp; axe &nbsp; &nbsp; &nbsp; rifle &nbsp; &nbsp; &nbsp; radio &nbsp; &nbsp; &nbsp; lantern &nbsp; &nbsp; &nbsp; alarm_clock &nbsp; &nbsp; &nbsp; stop_sign &nbsp; &nbsp; &nbsp; submarine</h6>
+        </br>
+        </br>
+        <h5>"Sketch" recognizes a single sketch and outputs the first 5 classes with highest probabilities.</h5>
+        <h5>The accuracy is increased by not converting to a tensor the entire canvas but only the minimum bounding box of the sketch.</h5>
+        </br>
+        <img src="images/cake.png" alt="Cake" width="50%" height="50%" style="border:1px solid black"></br></br>
+        <img src="images/drums.png" alt="Drums" width="50%" height="50%" style="border:1px solid black"></br></br>
+        <img src="images/radio.png" alt="Radio" width="50%" height="50%" style="border:1px solid black"></br></br>
+        </br>
+        </br>
+        <h5>"MultiSketch" recognizes multiple sketches and outputs the class with the highest probability.</h5>
+        <h5>There are two methods to find the sketches in the canvas; first is combining the bounding boxes of the different strikes used in the sketches</br>
+            in order to find the minimum bounding box for each. The second method uses K-means algorithm to find the clusters of the different sketches.</br>
+            This requires, however, the user to input the number of sketches they draw on the canvas.</br>
+            I've tried using the elbow method to automatically pick the correct number of clusters but as good as it sounds in theory there is</br>
+            no guarantee that while iterating over the number of clusters and computing the SSE each and every single one of them ends in the global minimum.</br>
+            Actually, even with the user inputing the number of clusters and the clusters being chosen at the same position as random input datapoints many times the</br>
+            K-means algorithm will end up in a local minimum.</br>
+        </h5>
+        </br>
+        <img src="images/multisketch.png" alt="Cake" width="50%" height="50%" style="border:1px solid black"></br></br>
+        </br>
+        <h4>
+            Email: lestef94[at]outlook[dot]com
+        </h4>
+    </div> 
+</body>
+</html>
